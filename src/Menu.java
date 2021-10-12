@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
-public class Menukort {
-    ArrayList<Pizza> list;
-    Menukort(){
+public class Menu {
+     ArrayList<Pizza> list;
+    Menu(){
         init();
     }
 
@@ -43,6 +43,7 @@ public class Menukort {
     public void printList(){
         for (int i = 0; i < list.size(); i++) {
             System.out.println(list.get(i));
+
         }
     }
 
@@ -50,9 +51,6 @@ public class Menukort {
         return list;
     }
 
-    public static void main(String[] args) {
-        Menukort menukort = new Menukort();
-        menukort.printList();
-    }
+
 
 }
