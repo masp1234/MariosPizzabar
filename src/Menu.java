@@ -44,7 +44,7 @@ public class Menu {
         System.out.println("MARIOS PIZZABAR");
         System.out.println("____________________________________________");
         System.out.println("Vælg en af følgende Pizzaer:");
-        System.out.println("Nr.1, Vesuvio: Tomatsauce, ost, skinke og oregano.................................57 kr.");
+        System.out.println("Nr. 1, Vesuvio: Tomatsauce, ost, skinke og oregano.................................57 kr.");
         System.out.println("Nr. 2, Amerikaner: Tomatsauce, ost, oksefars og oregano............................53 kr.");
         System.out.println("Nr. 3, Casiatore: Tomatsauce, ost, pepperoni og oregano............................57 kr.");
         System.out.println("Nr. 4, Carbonara: Tomatsauce, ost, kodsauce, spaghetti, cocktailpølser og oregano..63 kr.");
