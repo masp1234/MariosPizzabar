@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class Parser {
+    // kunne eventuelt være final
     private Menukort menukort = new Menukort();
     private OrderList orderList = new OrderList();
     private CompletedOrders completedOrders = new CompletedOrders();
@@ -25,16 +26,23 @@ public class Parser {
                     }
                     break;
                 case 3:
-                    //vi mangler mulighed for at adde flere pizzaer på en order
                     System.out.println("Hvilket nummer har pizzaen?");
-                    int tal = sc.nextInt();
-                    //udskriver navnet på pizzaen der er tilføjet
-                    System.out.println("Du har tilføjet " + menukort.getList().get(tal-1).getName());
-                   orderList.addPizza(tal);
-                   completedOrders.addPizza(tal);
+                    int pizzaNumber = sc.nextInt();
+                    if (menukort.getList().size() >= pizzaNumber && pizzaNumber > 0) {
+                        orderList.addPizza(pizzaNumber);
+                        System.out.println("Du har tilføjet " + menukort.getList().get(pizzaNumber-1).getName());
+                        //completedOrders.addPizza(tal);
+                    } else{
+                        System.out.println("Der findes ikke en pizza med dette nummer");
+                    }
                    break;
                 case 4:
+                    if(!(orderList.getOrderList().size() == 0)) {
+                        System.out.println("Du har fjernet " + orderList.getOrderList().get(0).getName());
                     orderList.removePizza();
+                } else{
+                    System.out.println("Der er ingen pizzaer i bestillingslisten");
+                }
                     break;
                 case 5:
                     printOptions();

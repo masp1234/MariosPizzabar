@@ -11,7 +11,7 @@ public class OrderList {
   }
   //Adder pizza til orderlist udfra menukort. Da menukort arraylisten starter på index 0 bruger vi -1
   public void addPizza(int pizzaNumber) {
-    orderList.add(menukort.getList().get(pizzaNumber-1));
+      orderList.add(menukort.getList().get(pizzaNumber - 1));
   }
   //remover altid den ældste i arraylisten
   public void removePizza() {
