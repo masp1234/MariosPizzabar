@@ -6,7 +6,7 @@ public class Menukort {
     Menukort() {
         init();
     }
-
+    //hardcoder alle pizzaerne i vores menukort
     public void init() {
         list = new ArrayList<>();
         Pizza pizza1 = new Pizza(1, "Vesuvio", "tomatsauce, ost, skinke og oregano", 57);
@@ -40,7 +40,7 @@ public class Menukort {
         list.add(pizza13);
         list.add(pizza14);
     }
-
+    //priner lise over menuen
     public void printList() {
         for (int i = 0; i < list.size(); i++) {
             System.out.println(list.get(i));
