@@ -1,10 +1,10 @@
 import java.util.Scanner;
 
 public class Parser {
-    Menukort menukort = new Menukort();
-    OrderList orderList = new OrderList();
-    CompletedOrders completedOrders = new CompletedOrders();
-    Scanner sc = new Scanner(System.in);
+    private Menukort menukort = new Menukort();
+    private OrderList orderList = new OrderList();
+    private CompletedOrders completedOrders = new CompletedOrders();
+    private Scanner sc = new Scanner(System.in);
 
     public void run(){
         boolean programIsRunning = true;

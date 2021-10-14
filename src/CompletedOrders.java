@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
 public class CompletedOrders {
-    ArrayList<Pizza> completedOrders;
-    Menukort menukort = new Menukort();
+    private ArrayList<Pizza> completedOrders;
+    private Menukort menukort = new Menukort();
     CompletedOrders(){
         completedOrders = new ArrayList();
     }

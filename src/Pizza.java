@@ -1,8 +1,8 @@
 public class Pizza {
-    int price;
-    String name;
-    int number;
-    String description;
+    private int price;
+    private String name;
+    private int number;
+    private String description;
 
     Pizza(int number, String name, String description, int price){
         this.name = name;

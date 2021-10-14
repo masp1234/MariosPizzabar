@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
 public class OrderList {
-  ArrayList<Pizza> orderList = new ArrayList<>();
-  Menukort menukort = new Menukort();
+  private ArrayList<Pizza> orderList = new ArrayList<>();
+  private Menukort menukort = new Menukort();
 
   public void printList() {
     for (int i = 0; i < orderList.size(); i++) {

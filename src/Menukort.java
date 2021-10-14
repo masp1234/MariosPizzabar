@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Menukort {
-    ArrayList<Pizza> list;
+    private ArrayList<Pizza> list;
 
     Menukort() {
         init();
