@@ -3,12 +3,14 @@ public class Pizza {
     private String name;
     private int number;
     private String description;
+    private String pickupTime;
 
     Pizza(int number, String name, String description, int price){
         this.name = name;
         this.price = price;
         this.number = number;
         this.description = description;
+
     }
 
     public int getPrice() {
@@ -29,6 +31,19 @@ public class Pizza {
 
     @Override
     public String toString() {
-        return number + ". " + name + ": " + description + " " + price + " kr.";
+        return number + ". " + name + ": " + description + " " + price + " kr." + pickupTime;
+    }
+
+    public String toStringWithTime(){
+        return number + ". " + name + ": " + description + " " + price + " kr. AFHENTES KL " + pickupTime;
+    }
+
+    public void setPickupTime(String pickupTime) {
+        this.pickupTime = pickupTime;
+    }
+
+    public String getPickupTime() {
+        return pickupTime;
     }
 }
+
