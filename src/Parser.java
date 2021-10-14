@@ -22,6 +22,7 @@ public class Parser {
                     //vi mangler mulighed for at adde flere pizzaer på en order
                     System.out.println("Hvilket nummer har pizzaen?");
                     int tal = sc.nextInt();
+                    System.out.println("Du har tilføjet " + menukort.getList().get(tal-1).getName());
                    orderList.addPizza(tal);
                    completedOrders.addPizza(tal);
                    break;
