@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class OrderList {
   ArrayList<Pizza> orderList = new ArrayList<>();
-
+  Menukort menukort = new Menukort();
 
   public void printList() {
     for (int i = 0; i < orderList.size(); i++) {
@@ -11,19 +11,11 @@ public class OrderList {
   }
 
   public void addPizza(int pizzaNumber) {
-
+    orderList.add(menukort.getList().get(pizzaNumber-1));
   }
 
-  public void addPizza(String pizzaName) {
-
-  }
-
-  public void removePizza(String pizzaName) {
-
-  }
-
-  public void removePizza(int pizzaNumber) {
-
+  public void removePizza() {
+    orderList.remove(0);
   }
 }
 

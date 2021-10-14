@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 
-public class Menu {
+public class Menukort {
     ArrayList<Pizza> list;
 
-    Menu() {
+    Menukort() {
         init();
     }
 
