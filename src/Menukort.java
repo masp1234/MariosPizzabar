@@ -39,27 +39,6 @@ public class Menukort {
         list.add(pizza12);
         list.add(pizza13);
         list.add(pizza14);
-
-        /*
-        System.out.println("MARIOS PIZZABAR");
-        System.out.println("____________________________________________");
-        System.out.println("Vælg en af følgende Pizzaer:");
-        System.out.println("Nr. 1, Vesuvio: Tomatsauce, ost, skinke og oregano.................................57 kr.");
-        System.out.println("Nr. 2, Amerikaner: Tomatsauce, ost, oksefars og oregano............................53 kr.");
-        System.out.println("Nr. 3, Casiatore: Tomatsauce, ost, pepperoni og oregano............................57 kr.");
-        System.out.println("Nr. 4, Carbonara: Tomatsauce, ost, kodsauce, spaghetti, cocktailpølser og oregano..63 kr.");
-        System.out.println("Nr. 5, Dennis: Tomaatsauce, ost, skinke, pepperoni, cocktailpølser og oregano......65 kr.");
-        System.out.println("Nr. 6, Bertil: Tomatsauce, ost, bacon, oregano.....................................57 kr.");
-        System.out.println("Nr. 7, Silvia: Tomatsauce, ost, pepperoni, rød peber, løg, oliven og oregano.......61 kr.");
-        System.out.println("Nr. 8, Victoria: Tomatsauce, ost, skinke, ananas, champignon, løg og oregano.......61 kr.");
-        System.out.println("Nr. 9, Toronfo: Tomatsauce, ost, skinke, bacon, kebab, chili og oregano............61 kr.");
-        System.out.println("Nr. 10, Capricciosa: Tomatsauce, ost, skinke, champignon og oregano................61 kr.");
-        System.out.println("Nr. 11, Hawai: Tomatsauce, ost, skinke, ananas og oregano..........................61 kr.");
-        System.out.println("Nr. 12, Le Blissola: Tomatsauce, ost, skinke, rejer og oregano.....................61 kr.");
-        System.out.println("Nr. 13, Venezia: Tomatsauce, ost, skinke, bacon og oregano.........................61 kr.");
-        System.out.println("Nr. 14, Mafia: Tomatsauce, ost, pepperoni, bacon, løg, oregano.....................61 kr.");
-        */
-
     }
 
     public void printList() {
