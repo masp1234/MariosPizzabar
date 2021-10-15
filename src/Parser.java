@@ -1,6 +1,7 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Parser {
+public class Parser{
     // kunne eventuelt være final
     private Menukort menukort = new Menukort();
     private OrderList orderList = new OrderList();
@@ -18,27 +19,46 @@ public class Parser {
                     menukort.printList();
                     break;
                 case 2:
-                    //printer listen hvis den indeholder mindste et element
                     if(orderList.getOrderList().size() == 0){
                         System.out.println("Bestillingslisten er tom");
                     } else {
-                        orderList.printList();
+                        for (int i = 0; i < orderList.getOrderList().size(); i++) {
+                            System.out.println("------------------------------------------------------------------");
+                            for (int j = 0; j < orderList.getOrderList().get(i).getListOfPizza().size(); j++) {
+                                System.out.println(orderList.getOrderList().get(i).getListOfPizza().get(j));
+                            }
+                        }
+                        System.out.println("------------------------------------------------------------------");
                     }
                     break;
                 case 3:
-                    System.out.println("Hvilket nummer har pizzaen?");
-                    int pizzaNumber = sc.nextInt();
-                    if (menukort.getList().size() >= pizzaNumber && pizzaNumber > 0) {
-                        orderList.addPizza(pizzaNumber);
-                        System.out.println("Du har tilføjet " + menukort.getList().get(pizzaNumber-1).getName());
-                        //completedOrders.addPizza(tal);
-                    } else{
-                        System.out.println("Der findes ikke en pizza med dette nummer");
-                    }
+                        sc.nextLine();
+                        Order order = new Order();
+                        System.out.println("Indtast de ønskede pizzaer separeret med mellemrum");
+                        String line = sc.nextLine();
+                        String[] pizzaString = line.split(" ");
+                        int[] pizzas = new int[pizzaString.length];
+                        for (int i = 0; i < pizzas.length; i++) {
+                            //if (menukort.getList().size() >= pizzas[i] && 0 < pizzas[i]){
+                                pizzas[i] = Integer.parseInt(pizzaString[i]);
+                                order.addPizza(pizzas[i]);
+                            //}
+                        }
+                        System.out.println("Du har tilføjet:");
+                        for (int i = 0; i < order.listOfPizza.size(); i++) {
+                            System.out.println(order.listOfPizza.get(i));
+                        }
+                        if(!(order.getListOfPizza().size() == 0))
+                        orderList.addOrder(order);
                    break;
                 case 4:
                     if(!(orderList.getOrderList().size() == 0)) {
-                        System.out.println("Du har fjernet " + orderList.getOrderList().get(0).getName());
+                        System.out.println("------------------------------------------------------------------");
+                        System.out.println("Du har fjernet bestillingen med:");
+                        for (int i = 0; i < orderList.getOrderList().get(0).getListOfPizza().size(); i++) {
+                            System.out.println(orderList.getOrderList().get(0).getListOfPizza().get(i).getName());
+                        }
+                        System.out.println("------------------------------------------------------------------");
                     orderList.removePizza();
                 } else{
                     System.out.println("Der er ingen pizzaer i bestillingslisten");
@@ -60,5 +80,6 @@ public class Parser {
     public void printOptions(){
         System.out.println("vælg 1 for at se menukort \nvælg 2 for at se bestillinger \nvælg 3 for at oprette bestilling \nvælg 4 for at fjerne bestilling \nvælg 5 hvis du ville have valg over muligheder \nvælg 9 hvis du vil lukke program");
     }
+
 
 }
