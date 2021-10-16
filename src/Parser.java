@@ -52,12 +52,8 @@ public class Parser{
                                 System.out.println("Nummer " + pizzas[i] + " er ikke på menukortet, og derfor er den ikke tilføjet til bestilling");
                             }
                         }
-                        //printer de tilføjede orders
-                        System.out.println("Du har tilføjet:");
-                        for (int i = 0; i < order.listOfPizza.size(); i++) {
-                            System.out.println(order.listOfPizza.get(i));
-                        }
-                        //tilføger til orderList, hvis order har 1 eller flere elementer
+
+                        //tilføjer til orderList, hvis order har 1 eller flere elementer
                         if(!(order.getListOfPizza().size() == 0))
                         orderList.addOrder(order);
                    break;
