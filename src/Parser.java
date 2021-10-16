@@ -71,8 +71,6 @@ public class Parser{
                         }
                         System.out.println("------------------------------------------------------------------");
                         completedOrders.getCompletedOrders().add(orderList.getOrderList().get(0));
-                        //
-                        // completedOrders.saveOrder();
                         orderList.removeOrder();
                 } else{
                     System.out.println("Der er ingen pizzaer i bestillingslisten");
