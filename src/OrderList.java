@@ -12,6 +12,20 @@ public class OrderList {
     orderList.remove(0);
   }
 
+  public void printOrderList() {
+    if(getOrderList().size() == 0){
+      System.out.println("Bestillingslisten er tom");
+    } else {
+      for (int i = 0; i < getOrderList().size(); i++) {
+        System.out.println("------------------------------------------------------------------");
+        for (int j = 0; j < getOrderList().get(i).getListOfPizza().size(); j++) {
+          System.out.println(getOrderList().get(i).getListOfPizza().get(j));
+        }
+      }
+      System.out.println("------------------------------------------------------------------");
+    }
+  }
+
   public ArrayList<Order> getOrderList() {
     return orderList;
   }
