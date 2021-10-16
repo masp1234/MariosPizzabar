@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class CompletedOrders {
-    private ArrayList<Pizza> completedOrders;
+    private ArrayList<Order> completedOrders;
     private Menukort menukort = new Menukort();
     CompletedOrders(){
         completedOrders = new ArrayList();
@@ -11,5 +11,7 @@ public class CompletedOrders {
         completedOrders.add(orderList.getOrderList().get(0));
     }
 
-
+    public ArrayList<Order> getCompletedOrders() {
+        return completedOrders;
+    }
 }

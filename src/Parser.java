@@ -55,6 +55,11 @@ public class Parser{
 
                         //tilføjer til orderList, hvis order har 1 eller flere elementer
                         if(!(order.getListOfPizza().size() == 0))
+                            //printer de tilføjede orders
+                            System.out.println("Du har tilføjet:");
+                            for (int i = 0; i < order.listOfPizza.size(); i++) {
+                              System.out.println(order.listOfPizza.get(i));
+                            }
                         orderList.addOrder(order);
                    break;
                 case 4:
@@ -65,13 +70,29 @@ public class Parser{
                             System.out.println(orderList.getOrderList().get(0).getListOfPizza().get(i).getName());
                         }
                         System.out.println("------------------------------------------------------------------");
-                    orderList.removeOrder();
+                        completedOrders.getCompletedOrders().add(orderList.getOrderList().get(0));
+                        //
+                        // completedOrders.saveOrder();
+                        orderList.removeOrder();
                 } else{
                     System.out.println("Der er ingen pizzaer i bestillingslisten");
                 }
                     break;
                 case 5:
                     printOptions();
+                    break;
+                case 6:
+                    if (completedOrders.getCompletedOrders().size() == 0) {
+                        System.out.println("Der er ikke nogle færdiglavede ordrer");
+                    }
+                    else {
+                        System.out.println("Disse ordrer er udleveret");
+                        for (int i = 0; i < completedOrders.getCompletedOrders().size(); i++) {
+                            for (int j = 0; j < completedOrders.getCompletedOrders().get(i).getListOfPizza().size(); j++) {
+                                System.out.println(completedOrders.getCompletedOrders().get(i).getListOfPizza().get(j));
+                            }
+                        }
+                    }
                     break;
                 case 9:
                     programIsRunning = false;
@@ -84,7 +105,7 @@ public class Parser{
     }
     //printer de forskellige muligheder brugeren har
     public void printOptions(){
-        System.out.println("vælg 1 for at se menukort \nvælg 2 for at se bestillinger \nvælg 3 for at oprette bestilling \nvælg 4 for at fjerne bestilling \nvælg 5 hvis du ville have valg over muligheder \nvælg 9 hvis du vil lukke program");
+        System.out.println("vælg 1 for at se menukort \nvælg 2 for at se bestillinger \nvælg 3 for at oprette bestilling \nvælg 4 for at fjerne og gemme bestilling i systemet \nVælg 5 for at se muligheder \nvælg 6 hvis du vil se en liste over alle fuldførte bestillinger \nvælg 9 hvis du vil lukke program");
     }
 
 
