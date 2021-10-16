@@ -31,19 +31,9 @@ public class Pizza {
 
     @Override
     public String toString() {
-        return number + ". " + name + ": " + description + " " + price + " kr." + pickupTime;
+        return number + ". " + name + ": " + description + " " + price + " kr.";
     }
 
-    public String toStringWithTime(){
-        return number + ". " + name + ": " + description + " " + price + " kr. AFHENTES KL " + pickupTime;
-    }
 
-    public void setPickupTime(String pickupTime) {
-        this.pickupTime = pickupTime;
-    }
-
-    public String getPickupTime() {
-        return pickupTime;
-    }
 }
 
