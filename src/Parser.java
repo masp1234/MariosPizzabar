@@ -2,8 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Parser{
-    // kunne eventuelt være final
-    private Menukort menukort = new Menukort();
+    private final Menukort menukort = new Menukort();
     private OrderList orderList = new OrderList();
     private CompletedOrders completedOrders = new CompletedOrders();
     private Scanner sc = new Scanner(System.in);
@@ -44,12 +43,15 @@ public class Parser{
                         //laver int array med samme længde
                         int[] pizzas = new int[pizzaString.length];
                         for (int i = 0; i < pizzas.length; i++) {
-                            //if (menukort.getList().size() >= pizzas[i] && 0 < pizzas[i]){
                             //sætter pizzaString ind i pizzas og parser det til ints
                                 pizzas[i] = Integer.parseInt(pizzaString[i]);
+                            if (menukort.getList().size() >= pizzas[i] && 0 < pizzas[i]){
                                 //adder til order list
                                 order.addPizza(pizzas[i]);
-                            //}
+                            }
+                            else{
+                                System.out.println("Nummer " + pizzas[i] + " er ikke på menukortet, og derfor er den ikke tilføjet til bestilling");
+                            }
                         }
                         //printer de tilføjede orders
                         System.out.println("Du har tilføjet:");
