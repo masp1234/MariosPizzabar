@@ -35,19 +35,28 @@ public class Parser{
                         sc.nextLine();
                         Order order = new Order();
                         System.out.println("Indtast de ønskede pizzaer separeret med mellemrum");
+                        //scanner hele linjen
                         String line = sc.nextLine();
-                        String[] pizzaString = line.split(" ");
+                        //trimmer mellemrum fra start og slut
+                        String newLine = line.trim();
+                        //sætter alle tal seperaret med mellemrum ind i array
+                        String[] pizzaString = newLine.split(" ");
+                        //laver int array med samme længde
                         int[] pizzas = new int[pizzaString.length];
                         for (int i = 0; i < pizzas.length; i++) {
                             //if (menukort.getList().size() >= pizzas[i] && 0 < pizzas[i]){
+                            //sætter pizzaString ind i pizzas og parser det til ints
                                 pizzas[i] = Integer.parseInt(pizzaString[i]);
+                                //adder til order list
                                 order.addPizza(pizzas[i]);
                             //}
                         }
+                        //printer de tilføjede orders
                         System.out.println("Du har tilføjet:");
                         for (int i = 0; i < order.listOfPizza.size(); i++) {
                             System.out.println(order.listOfPizza.get(i));
                         }
+                        //tilføger til orderList, hvis order har 1 eller flere elementer
                         if(!(order.getListOfPizza().size() == 0))
                         orderList.addOrder(order);
                    break;
