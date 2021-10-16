@@ -39,8 +39,8 @@ public class Parser{
                         String line = sc.nextLine();
                         //trimmer mellemrum fra start og slut
                         String newLine = line.trim();
-                        //sætter alle tal seperaret med mellemrum ind i array
-                        String[] pizzaString = newLine.split(" ");
+                        //sætter alle tal seperaret med et eller flere mellemrum ind i array (s+ er regex)
+                        String[] pizzaString = newLine.split("\s+");
                         //laver int array med samme længde
                         int[] pizzas = new int[pizzaString.length];
                         for (int i = 0; i < pizzas.length; i++) {
