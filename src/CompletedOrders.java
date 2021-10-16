@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class CompletedOrders {
     private ArrayList<Order> completedOrders;
     private Menukort menukort = new Menukort();
+    private OrderList orderList = new OrderList();
     CompletedOrders(){
         completedOrders = new ArrayList();
     }
