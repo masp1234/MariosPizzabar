@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Parser{
@@ -70,7 +69,7 @@ public class Parser{
                             System.out.println(orderList.getOrderList().get(0).getListOfPizza().get(i).getName());
                         }
                         System.out.println("------------------------------------------------------------------");
-                    orderList.removePizza();
+                    orderList.removeOrder();
                 } else{
                     System.out.println("Der er ingen pizzaer i bestillingslisten");
                 }

@@ -8,7 +8,7 @@ public class OrderList {
       orderList.add(order);
   }
   //remover altid den ældste i arraylisten
-  public void removePizza() {
+  public void removeOrder() {
     orderList.remove(0);
   }
 
