@@ -11,7 +11,7 @@ public class Parser{
         System.out.println("Velkommen til Marios Pizzabar!");
         printOptions();
 
-        //laver switch over hvad brugeren kan taste
+        //dette while vil tjekke om brugeren taster et nummer, så vores program ikke vil crashe
         while(programIsRunning) {
             int userInput = -1;
             boolean notAnInt = true;
@@ -25,6 +25,7 @@ public class Parser{
                     System.out.println("Kan kun indtaste tal.");
                 }
             }
+            //laver switch over hvad brugeren kan taste
                 switch (userInput) {
                     case 1:
                         menu.printList();
@@ -74,13 +75,14 @@ public class Parser{
         String line = sc.nextLine();
         //trimmer mellemrum fra start og slut
         String newLine = line.trim();
-        //sætter alle tal seperaret med et eller flere mellemrum ind i array (s+ er regex)
+        //sætter alle tal seperaret med et eller flere mellemrum ind i String array (s+ er regex)
         String[] pizzaString = newLine.split("\s+");
         //laver int array med samme længde
         int[] pizzas = new int[pizzaString.length];
         for (int i = 0; i < pizzas.length; i++) {
             //sætter pizzaString ind i pizzas og parser det til ints
             pizzas[i] = Integer.parseInt(pizzaString[i]);
+            //hvis det indtastede tal er på menulisten, vil koden adde pizzaen til order
             if (menu.getList().size() >= pizzas[i] && 0 < pizzas[i]) {
                 //adder til order list
                 order.addPizza(pizzas[i]);
@@ -90,7 +92,7 @@ public class Parser{
             }
         }
 
-        //tilføjer til orderList, hvis order har 1 eller flere elementer
+        //tilføjer til orderList, hvis order har 1 eller flere elementer (altså hvis String line ikke er tom)
         if (!(order.getListOfPizza().size() == 0))
             //printer de tilføjede orders
             System.out.println("Du har tilføjet:");
@@ -99,7 +101,9 @@ public class Parser{
         }
         orderList.addOrder(order);
     }
+    //gemmer bestillingen i completedOrders og fjerner fra bestillingslisten
     public void saveAndRemove(){
+        //Fjerner objekt på index 0. Der er added if, så program ellers ikke crasher
         if (!(orderList.getOrderList().size() == 0)) {
             System.out.println("------------------------------------------------------------------");
             System.out.println("Du har fjernet og gemt bestillingen indeholdende:");
@@ -113,6 +117,8 @@ public class Parser{
             System.out.println("Der er ingen pizzaer i bestillingslisten");
         }
     }
+    //printer completedOrders. Er nested da den både skal tage højde for antal orders og pizzaer i orders.
+    //If statement er added, så der ikke vil ske fejl, hvis metoden bliver kaldt, hvor completedOrders er tom
     public void printListOfCompletedOrders(){
         if (completedOrders.getCompletedOrders().size() == 0) {
             System.out.println("Der er ikke nogle færdiglavede ordrer");

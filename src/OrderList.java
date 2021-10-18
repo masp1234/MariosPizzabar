@@ -3,15 +3,16 @@ import java.util.ArrayList;
 public class OrderList {
   private ArrayList<Order> orderList = new ArrayList<>();
 
-  //Adder pizza til orderlist udfra menukort. Da menukort arraylisten starter på index 0 bruger vi -1
+
   public void addOrder(Order order) {
       orderList.add(order);
   }
-  //remover altid den ældste i arraylisten
+
+  //remover altid det ældste objekt i arraylisten
   public void removeOrder() {
     orderList.remove(0);
   }
-
+ //printer vores orderlist ved nested loop, da vi skal gennemløbe orderlists orders og pizzaerne i alle orders
   public void printOrderList() {
     if(getOrderList().size() == 0){
       System.out.println("Bestillingslisten er tom");
