@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Parser{
-    private final Menukort menukort = new Menukort();
+    private final Menu menu = new Menu();
     private OrderList orderList = new OrderList();
     private CompletedOrders completedOrders = new CompletedOrders();
     private Scanner sc = new Scanner(System.in);
@@ -27,7 +27,7 @@ public class Parser{
             }
                 switch (userInput) {
                     case 1:
-                        menukort.printList();
+                        menu.printList();
                         break;
                     case 2:
                         orderList.printOrderList();
@@ -81,7 +81,7 @@ public class Parser{
         for (int i = 0; i < pizzas.length; i++) {
             //sætter pizzaString ind i pizzas og parser det til ints
             pizzas[i] = Integer.parseInt(pizzaString[i]);
-            if (menukort.getList().size() >= pizzas[i] && 0 < pizzas[i]) {
+            if (menu.getList().size() >= pizzas[i] && 0 < pizzas[i]) {
                 //adder til order list
                 order.addPizza(pizzas[i]);
             } else {
