@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 
-public class Menukort {
+public class Menu {
     private ArrayList<Pizza> list;
 
-    Menukort() {
+    Menu() {
         init();
     }
     //hardcoder alle pizzaerne i vores menukort
