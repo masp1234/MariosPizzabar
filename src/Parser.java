@@ -34,69 +34,16 @@ public class Parser{
                         break;
                     case 3:
                         sc.nextLine();
-                        Order order = new Order();
-                        System.out.println("Indtast de ønskede pizzaer separeret med mellemrum " +
-                                "og tryk derefter 'enter'");
-                        //scanner hele linjen
-                        String line = sc.nextLine();
-                        //trimmer mellemrum fra start og slut
-                        String newLine = line.trim();
-                        //sætter alle tal seperaret med et eller flere mellemrum ind i array (s+ er regex)
-                        String[] pizzaString = newLine.split("\s+");
-                        //laver int array med samme længde
-                        int[] pizzas = new int[pizzaString.length];
-
-                        for (int i = 0; i < pizzas.length; i++) {
-                            //sætter pizzaString ind i pizzas og parser det til ints
-                            pizzas[i] = Integer.parseInt(pizzaString[i]);
-                            if (menukort.getList().size() >= pizzas[i] && 0 < pizzas[i]) {
-                                //adder til order list
-                                order.addPizza(pizzas[i]);
-                            } else {
-                                System.out.println("Nummer " + pizzas[i] + " er ikke på menukortet, " +
-                                        "og derfor er den ikke tilføjet til bestilling");
-                            }
-                        }
-
-                        //tilføjer til orderList, hvis order har 1 eller flere elementer
-                        if (!(order.getListOfPizza().size() == 0))
-                            //printer de tilføjede orders
-                            System.out.println("Du har tilføjet:");
-                        for (int i = 0; i < order.listOfPizza.size(); i++) {
-                            System.out.println(order.listOfPizza.get(i));
-                        }
-                        orderList.addOrder(order);
+                        addPizzaOrder();
                         break;
                     case 4:
-                        if (!(orderList.getOrderList().size() == 0)) {
-                            System.out.println("------------------------------------------------------------------");
-                            System.out.println("Du har fjernet og gemt bestillingen indeholdende:");
-                            for (int i = 0; i < orderList.getOrderList().get(0).getListOfPizza().size(); i++) {
-                                System.out.println(orderList.getOrderList().get(0).getListOfPizza().get(i).getName());
-                            }
-                            System.out.println("------------------------------------------------------------------");
-                            completedOrders.getCompletedOrders().add(orderList.getOrderList().get(0));
-                            orderList.removeOrder();
-                        } else {
-                            System.out.println("Der er ingen pizzaer i bestillingslisten");
-                        }
+                       saveAndRemove();
                         break;
                     case 5:
                         printOptions();
                         break;
                     case 6:
-                        if (completedOrders.getCompletedOrders().size() == 0) {
-                            System.out.println("Der er ikke nogle færdiglavede ordrer");
-                        } else {
-                            System.out.println("Disse ordrer er udleveret");
-                            for (int i = 0; i < completedOrders.getCompletedOrders().size(); i++) {
-                                for (int j = 0; j < completedOrders.getCompletedOrders().get(i)
-                                        .getListOfPizza().size(); j++) {
-                                    System.out.println(completedOrders.getCompletedOrders()
-                                            .get(i).getListOfPizza().get(j));
-                                }
-                            }
-                        }
+                        printListOfCompletedOrders();
                         break;
                     case 9:
                         System.out.println("Lukker programmet...");
@@ -118,6 +65,67 @@ public class Parser{
                 Vælg 5 for at se muligheder\s
                 Vælg 6 hvis du vil se en liste over alle fuldførte bestillinger\s
                 Vælg 9 hvis du vil lukke program""");
+    }
+    public void addPizzaOrder(){
+        Order order = new Order();
+        System.out.println("Indtast de ønskede pizzaer separeret med mellemrum " +
+                "og tryk derefter 'enter'");
+        //scanner hele linjen
+        String line = sc.nextLine();
+        //trimmer mellemrum fra start og slut
+        String newLine = line.trim();
+        //sætter alle tal seperaret med et eller flere mellemrum ind i array (s+ er regex)
+        String[] pizzaString = newLine.split("\s+");
+        //laver int array med samme længde
+        int[] pizzas = new int[pizzaString.length];
+        for (int i = 0; i < pizzas.length; i++) {
+            //sætter pizzaString ind i pizzas og parser det til ints
+            pizzas[i] = Integer.parseInt(pizzaString[i]);
+            if (menukort.getList().size() >= pizzas[i] && 0 < pizzas[i]) {
+                //adder til order list
+                order.addPizza(pizzas[i]);
+            } else {
+                System.out.println("Nummer " + pizzas[i] + " er ikke på menukortet, " +
+                        "og derfor er den ikke tilføjet til bestilling");
+            }
+        }
+
+        //tilføjer til orderList, hvis order har 1 eller flere elementer
+        if (!(order.getListOfPizza().size() == 0))
+            //printer de tilføjede orders
+            System.out.println("Du har tilføjet:");
+        for (int i = 0; i < order.listOfPizza.size(); i++) {
+            System.out.println(order.listOfPizza.get(i));
+        }
+        orderList.addOrder(order);
+    }
+    public void saveAndRemove(){
+        if (!(orderList.getOrderList().size() == 0)) {
+            System.out.println("------------------------------------------------------------------");
+            System.out.println("Du har fjernet og gemt bestillingen indeholdende:");
+            for (int i = 0; i < orderList.getOrderList().get(0).getListOfPizza().size(); i++) {
+                System.out.println(orderList.getOrderList().get(0).getListOfPizza().get(i).getName());
+            }
+            System.out.println("------------------------------------------------------------------");
+            completedOrders.getCompletedOrders().add(orderList.getOrderList().get(0));
+            orderList.removeOrder();
+        } else {
+            System.out.println("Der er ingen pizzaer i bestillingslisten");
+        }
+    }
+    public void printListOfCompletedOrders(){
+        if (completedOrders.getCompletedOrders().size() == 0) {
+            System.out.println("Der er ikke nogle færdiglavede ordrer");
+        } else {
+            System.out.println("Disse ordrer er udleveret");
+            for (int i = 0; i < completedOrders.getCompletedOrders().size(); i++) {
+                for (int j = 0; j < completedOrders.getCompletedOrders().get(i)
+                        .getListOfPizza().size(); j++) {
+                    System.out.println(completedOrders.getCompletedOrders()
+                            .get(i).getListOfPizza().get(j));
+                }
+            }
+        }
     }
 
 
